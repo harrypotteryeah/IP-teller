@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ali'nin ip sini alma sanati</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .header {
+      background-color: #e0e0e0;
+      padding: 20px;
+      margin-bottom: -20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    #ipAddress {
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    .content {
+      background-image: url('musa.png');
+      background-size: cover;
+      background-position: center;
+      min-height: calc(100vh + 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -20px;
+      position: relative;
+    }
+
+    .box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .box span {
+      color: #333;
+    }
+
+    @media only screen and (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      #ipAddress {
+        font-size: 24px;
+      }
+
+      .box {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Ali'nin ip'si</h1>
+    <p id="ipAddress">Geliyooor</p>
+  </div>
+
+  <div class="content">
+    <div class="box">
+      <span>Musa</span>
+    </div>
+  </div>
+
+  <script>
+    // Fetch the IP address using an API
+    fetch('https://api.ipify.org/?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ipAddress = data.ip;
+        document.getElementById('ipAddress').innerText = ipAddress;
+      })
+      .catch(error => {
+        console.log('Error:', error);
+        document.getElementById('ipAddress').classList.add('error');
+        document.getElementById('ipAddress').innerText = 'Error fetching IP address';
+      });
+  </script>
+</body>
+</html>

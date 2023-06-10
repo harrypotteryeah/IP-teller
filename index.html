@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Uzaktan telefonunuza baglanin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,10 +11,13 @@
       background-color: #f4f4f4;
     }
 
-    .header {
-      background-color: #e0e0e0;
-      padding: 20px;
-      margin-bottom: -20px;
+    .content {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #e0e0e0; /* Add your desired background color here */
     }
 
     h1 {
@@ -34,33 +36,6 @@
       font-weight: bold;
     }
 
-    .content {
-      background-image: url('musa.png');
-      background-size: cover;
-      background-position: center;
-      min-height: calc(100vh + 20px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: -20px;
-      position: relative;
-    }
-
-    .box {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: rgba(255, 255, 255, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .box span {
-      color: #333;
-    }
-
     @media only screen and (max-width: 768px) {
       h1 {
         font-size: 32px;
@@ -69,23 +44,13 @@
       #ipAddress {
         font-size: 24px;
       }
-
-      .box {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Ip ini aldim agla</h1>
-    <p id="ipAddress">Geliyooor</p>
-  </div>
-
   <div class="content">
-    <div class="box">
-      <span>Musa</span>
-    </div>
+    <h1>IP numarası</h1>
+    <p id="ipAddress">Yükleniyor</p>
   </div>
 
   <script>
@@ -99,7 +64,7 @@
       .catch(error => {
         console.log('Error:', error);
         document.getElementById('ipAddress').classList.add('error');
-        document.getElementById('ipAddress').innerText = 'Error fetching IP address';
+        document.getElementById('ipAddress').innerText = 'IP adresi alınırken hata oluştu.';
       });
   </script>
 </body>
